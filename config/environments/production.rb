@@ -27,7 +27,7 @@ Rails.application.configure do
     :port           => '587',
     :authentication => :plain,
     :user_name      => 'nanofresh.vn@gmail.com',
-    :password       =>  '12345678a@'s,
+    :password       =>  '12345678a@',
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
