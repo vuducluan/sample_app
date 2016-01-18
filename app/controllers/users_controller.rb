@@ -6,13 +6,13 @@ class UsersController < ApplicationController
   def index
     # @users = User.paginate(page: params[:page])
     # Filller only users actived
-    @users = User.where(activated: FILL_IN).paginate(page: params[:page])
+    @users = User.where(activated: FILL_IN).paginate(page: params[:page])    
   end
 
   def show
   	@user = User.find(params[:id])
     # redirect
-    redirect_to root_url and return unless FILL_IN
+    redirect_to root_url and return unless FILL_IN    
   end
 
   def new
