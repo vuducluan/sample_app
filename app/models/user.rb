@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   def activate
     # update_attribute(:activated, true)
     # update_attribute(:activated_at, Time.zone.now)
-    update_columns(actived: FILL_IN, actived_at: FILL_IN)
+    update_columns(activated: FILL_IN, activated_at: FILL_IN)
   end
 
   # Sends activation email.
