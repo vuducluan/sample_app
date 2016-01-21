@@ -1,17 +1,24 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy	
-  before_action :set_micropost, only: [:index, :new, :create]
+  before_action :set_micropost, only: [:create, :destroy]
   def create
   	@comment = @micropost.comments.build(comment_params) do |c|
       c.user = current_user
     end
     if @comment.save
       flash[:success] = "Comment created!"
-      redirect_to current_user
+      redirect_to root_url
     else
       render 'static_pages/home'
     end  
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    flash[:success] = "Deleted comment!"
+    redirect_to root_url
   end
 
   private

@@ -1,19 +1,20 @@
-<h5>Comments below: <h5>
 <div class="comment">
-  <% @user.comments.each do |comment| %>
-  	<span class="user"><%= link_to comment.user.name %></span>
-  	<div class="container">
-      <div class="dialogbox">
-        <div class="body">
-          <span class="tip tip-up"></span>
-            <div class="message">
-              <span><%= comment.comment%></span>
-            </div>
-        </div>
+  <span class="user"><%= link_to comment.user.name %></span>
+  <div class="container">
+    <div class="dialogbox">
+      <div class="body">
+        <span class="tip tip-up"></span>
+          <div class="message">
+            <span><%= comment.comment%></span>
+          </div>
       </div>
-    </div>  
-    <span class= "timestamp-comment">  
-      <%= time_ago_in_words(comment.created_at) %> ago.
-    </span>
-  <%end%>
+    </div>
+  </div>  
+  <span class= "timestamp-comment">  
+    Commented <%= time_ago_in_words(comment.created_at) %> ago.
+  </span>
+  <% if current_user?(comment.user) %>
+    <%= link_to "delete", comment, method: :delete,
+                                   data: {confirm: "Are you sure?"} %>
+  <% end %>
 </div>
