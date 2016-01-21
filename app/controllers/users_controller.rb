@@ -6,14 +6,11 @@ class UsersController < ApplicationController
   
   def index
     @users = User.paginate(page: params[:page])
-    # Filller only users actived
-    #@users = User.where(activated: FILL_IN).paginate(page: params[:page])    
   end
 
   def show
   	@user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
-    # redirect_to root_url and return unless FILL_IN    
+    @microposts = @user.microposts.paginate(page: params[:page], per_page: 10)
   end
 
   def new

@@ -1,0 +1,7 @@
+<%= form_for([micropost, micropost.comments.build]) do |f| %>
+  <%= f.text_area :comment, :size => "40x5", placeholder: "Comment..." %>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+  <span class="picture">
+    <%= f.file_field :picture, accept:'image/jpeg,image/gif,image/png' %>
+  </span>
+<% end %>
