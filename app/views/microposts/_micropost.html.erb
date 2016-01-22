@@ -15,11 +15,11 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
-    <h5>------------------------Comment below ^.^ -----------------------</h5>
-    <div id="comment">
-        <%= render micropost.comments %>
-    </div>  
+  <h5>------------------------Comment below ^.^ -----------------------</h5>
+  <div id="comment">
+    <%= render micropost.comments %>
+  </div>
   <% if logged_in? %>
     <%= render "shared/comment_form", micropost: micropost %>
-  <% end %>
+  s<% end %>
 </li>
