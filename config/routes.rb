@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
   resources  :account_activations, only:[:edit]
   resources  :password_resets,     only:[:new, :create, :edit, :update]
-  resources :microposts, shallow: true, only: [:create, :destroy] do
+  resources  :microposts, shallow: true, only: [:create, :destroy] do
     resources :comments, only: [:create, :destroy] 
   end
 
